@@ -1,5 +1,4 @@
 import { Component, OnInit,EventEmitter,Output,Input} from '@angular/core';
-import {bmiItemService} from "d:/Work/Latest angular/bmiCalc/src/app/BmitItem.service"
 
 
 @Component({
