@@ -1,7 +1,7 @@
 
 <form [formGroup]= "form"
 (ngSubmit)="onSubmit(form.value)"
-(delete)="onBmiItemDelete($event)">
+>
   <ul>
     <li>
       <label for="height">Enter height(m):</label>
@@ -20,14 +20,14 @@
   <button type="submit" [disabled] = "!form.valid">Save</button>
 
 </form>
-<button (click) ="onDelete()">Clear Form</button>
+
 <!-- <div name = "results" *ngFor =" let item of bmiItemArray">
   <p>Height {{item.height}}, weight {{item.weight}}, bmi : {{item.bmi}}</p>
   
 </div> -->
-<div>
-  <div *ngFor =" let dispbmiItem of bmiItemArray" >
-    <app-bmi [bmiItem] = "dispbmiItem" ></app-bmi>
+<div >
+  <div *ngFor =" let dispbmiItem of bmiItemArray"  >
+    <app-bmi [bmiItem] = "dispbmiItem" (delete)="onBmiItemDelete($event)"></app-bmi>
   </div >
   
 </div>

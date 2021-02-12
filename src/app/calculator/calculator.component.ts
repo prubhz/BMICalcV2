@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {bmiItemService} from '../BmitItem.service';
 
@@ -15,16 +15,11 @@ export class CalculatorComponent implements OnInit {
   weight: number;
   bmiItemArray =[];
  // bmiItemAdd = {height:0,weight:0,bmi:0};
-  @Output() delete = new EventEmitter();
 
+  
   constructor(private bmiItemService: bmiItemService){}
 
-  onDelete(){
-    console.log('deleted');
-    this.delete.emit();
-    console.log("emitted")
-    //this.bmiItemArray =[];
-  }
+
   ngOnInit() {
     this.form = new FormGroup({
       weight: new FormControl('',Validators.compose([
@@ -52,7 +47,6 @@ export class CalculatorComponent implements OnInit {
     this.bmi = data.weight/(data.height * data.height)
 
   }
-
   onBmiItemDelete(event){
     //console.log(bmiItem, array);
     console.log("delete event", event)
@@ -60,4 +54,5 @@ export class CalculatorComponent implements OnInit {
     this.bmiItemService.delete(event);
    
    }
+
 }
